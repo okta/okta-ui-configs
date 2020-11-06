@@ -1,0 +1,20 @@
+{
+  "name": "@okta/configs",
+  "author": "Okta Inc.",
+  "private": true,
+  "engines": {
+    "yarn": "^1.21.1",
+    "node": ">=12.13"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "mkdir -p $PWD/test-reports/unit && echo \"Tests in progress\" && exit 0;",
+    "lint": "mkdir -p test-reports/lint && echo \"Lint tests in progress\" && exit 0;"
+  },
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "lerna": "3.22.1"
+  }
+}
