@@ -1,0 +1,17 @@
+test_suites:
+- name: unit
+  job_name: unit
+  script_path: /root/okta/okta-ui-configs/scripts
+  sort_order: '1'
+  timeout: '20'
+  script_name: unit
+  criteria: MERGE
+  queue_name: medium
+- name: publish
+  job_name: publish
+  script_path: /root/okta/okta-ui-configs/scripts
+  sort_order: '2'
+  timeout: '20'
+  script_name: publish
+  criteria: MERGE
+  queue_name: medium
