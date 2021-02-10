@@ -1,8 +1,33 @@
+# Okta UI Configurations
 
-Welcome to your new repo, okta-ui-configs!
+This repository contains standards and configurations for building JavaScript applications at Okta.
 
-This is a default readme file created to provide some helpful links and first steps.
-A lot of your questions might already exist in our [wiki page](http://bit.ly/EngFAQ), so please check there first.
-Your new artifact is available on bacon [here](https://bacon-go.aue1e.saasure.net/#!/commits/okta-ui-configs)
+<!-- TOC depthFrom:2 -->
 
-Please reach out to us over on [#eng-release](https://okta.slack.com/archives/C7L27G2Q5) or [#eng-productivity](https://okta.slack.com/archives/C7LQ4U8T0) for any additional assistance you might require.
+- [Packages](#packages)
+  - [Monorepo](#monorepo)
+  - [Versioning](#versioning)
+
+<!-- /TOC -->
+<!-- TOC generated using VSCode Plugin Markdown TOC -->
+
+## Packages
+
+| Package | Status | Description |
+|---------| -------| ------------|
+| [**eslint-plugin-okta**](/packages/eslint-plugin-okta) | *Internal only* | Standard ESLint rules and plugins. |
+
+### Monorepo
+
+This repo is managed as a **monorepo** using [Lerna](https://lernajs.io/). Each package within the **monorepo** is a separate npm module, each with its own `package.json` and `node_modules` directory.
+
+Packages are parsed from the `packages` property in [lerna.json](lerna.json), and adhere to this structure:
+
+```bash
+packages/
+  eslint-plugin-okta
+```
+
+### Versioning
+
+We've configured Lerna with [independent mode](https://github.com/lerna/lerna/#independent-mode---independent), which means that each package is required to manage its own version number.
