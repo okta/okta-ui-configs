@@ -23,6 +23,7 @@ To use this preset, add the following to your configuration file:
 module.exports = {
   extends: [
     'plugin:@okta/okta/recommended',
+    'plugin:@okta/okta/courage-app', // Intended for Courage-based web applications
   ],
 }
 ```
@@ -51,6 +52,8 @@ module.exports = {
 | Rule | Description |
 | -- | -- |
 | [no-exclusive-language](docs/rules/no-exclusive-language.md) | Disallow exclusionary words |
+| [no-unlocalized-text](docs/rules/no-unlocalized-text.md) | disallow hardcoded English text in Courage components |
+| [no-unlocalized-text-in-templates](docs/rules/no-unlocalized-text-in-templates.md) | disallow hardcoded English text in templates
 
 ## Processors
 
