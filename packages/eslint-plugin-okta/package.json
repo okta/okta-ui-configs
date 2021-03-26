@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
+    "i18n-lint": "^1.1.0",
     "node-properties-parser": "^0.0.2",
     "properties-to-json": "^0.1.7"
   },
