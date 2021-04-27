@@ -24,4 +24,5 @@
   "peerDependencies": {
     "eslint": ">=5.8.0"
   }
+  
 }
