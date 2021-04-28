@@ -26,6 +26,7 @@ module.exports = {
       ],
     },
     'courage-app': {
+      // Rules that are relevant to all courage-apps
       plugins: ['@okta/okta'],
       rules: {
         '@okta/okta/no-exclusive-language': 1,
