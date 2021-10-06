@@ -11,7 +11,24 @@ describe('processor', () => {
     });
     it('should return properties content as JS', () => {
       const pre = processor.preprocess('hello = there');
-      const expectedText = 'module.exports = {\n  "hello": "there"\n};';
+      const expectedText = 'module.exports = {\n  "hello": "there",\n};';
+      expect(pre[0].text).toEqual(expectedText);
+    });
+    it('should return comments and properties content as JS', () => {
+      const pre = processor.preprocess('# Comment 1\nhello = there');
+      const expectedText = 'module.exports = {\n  // Comment 1\n  "hello": "there",\n};';
+      expect(pre[0].text).toEqual(expectedText);
+    });
+    it('should return multi-line comments and properties content as JS', () => {
+      const pre = processor.preprocess('# Comment 1\n#Comment 2\nhello = there\nkey = value\n# Final Comment\nanother = one');
+      const expectedText = `module.exports = {
+  // Comment 1
+  //Comment 2
+  "hello": "there",
+  "key": "value",
+  // Final Comment
+  "another": "one",
+};`;
       expect(pre[0].text).toEqual(expectedText);
     });
     it('should return filename', () => {
@@ -29,12 +46,12 @@ describe('processor', () => {
       setUp('key = value\nanother.key = another value');
       const post = processor.postprocess([
         [
-          { line: 1, column: 0, message: 'Hello, world!', ruleId: 'testRule' },
+          { line: 1, column: 0, message: 'Some ESLint message', ruleId: 'testRule' },
         ],
       ]);
       expect(post).toEqual(
         [
-          { line: 1, column: 0, message: 'Hello, world!', ruleId: 'testRule' }
+          { line: 0, column: 0, message: 'Some ESLint message', ruleId: 'testRule' }
         ]
       );
     });
@@ -45,12 +62,12 @@ describe('processor', () => {
       `);
       const post = processor.postprocess([
         [
-          { line: 2, column: 0, message: 'Hello, world!', ruleId: 'testRule' },
+          { line: 4, column: 0, message: 'Some ESLint message', ruleId: 'testRule' },
         ],
       ]);
       expect(post).toEqual(
         [
-          { line: 3, column: 0, message: 'Hello, world!', ruleId: 'testRule' }
+          { line: 3, column: 0, message: 'Some ESLint message', ruleId: 'testRule' }
         ]
       );
     });
@@ -62,12 +79,12 @@ describe('processor', () => {
       `);
       const post = processor.postprocess([
         [
-          { line: 2, column: 0, message: 'Hello, world!', ruleId: 'testRule' },
+          { line: 5, column: 0, message: 'Some ESLint message', ruleId: 'testRule' },
         ],
       ]);
       expect(post).toEqual(
         [
-          { line: 4, column: 0, message: 'Hello, world!', ruleId: 'testRule' }
+          { line: 4, column: 0, message: 'Some ESLint message', ruleId: 'testRule' }
         ]
       );
     });

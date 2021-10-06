@@ -18,11 +18,12 @@ let propertiesMap;
  * In order to properly map line numbers, we need to create a map for each JSON key to where it is
  * located in the properties file.
  *
- * @param {*} propertiesText:  raw properties file content
+ * @param {*} propertiesText: Raw properties file content
  * @param {*} json: Output of properties file conversion to JSON
  */
 const linkPropertiesToJson = (propertiesText, json) => {
   propertiesMap = {};
+  let extras = [];
   propertiesText
     .split(/\r?\n/)
     .forEach((line, index) => {
@@ -30,16 +31,18 @@ const linkPropertiesToJson = (propertiesText, json) => {
       const matches = line.match(/[^=]*/);
       const key = matches[0] && matches[0].trim();
 
-      // We won't always have a key specified (comments, multi-line values, and extra newlines)
+      // We won't always have a key specified (comments and extra newlines)
       if (key && json[key]) {
-        let jsonIndex = Object
-          .keys(json)
-          .findIndex(jsonKey => jsonKey === key);
         propertiesMap[key] = {
+          value: key,
           column: 0,
-          jsonLine: jsonIndex + 1, // Account for "module.exports"
-          line: index,
+          line: index + 1, // non-zero index
+          extras,
         };
+        // Reset the comments array to account for multiple comment blocks
+        extras = [];
+      } else {
+        extras.push(key);
       }
     });
 };
@@ -53,8 +56,23 @@ const preprocess = (text, filename) => {
   if (!text) return;
   const json = properties(text);
   linkPropertiesToJson(text, json);
+
+  let objectText = 'module.exports = {';
+  
+  // Walk through our generated JSON and prepend parsed comments and newlines
+  Object.keys(json).forEach(key => {
+    if (!key) return;
+    const extras = propertiesMap[key] ? propertiesMap[key].extras : [];
+    extras.forEach(extras => {
+      objectText += `\n  ${extras.replace('#', '//')}`;
+    });
+    const value = json[key].replace(/"/g, '\\"'); // Escape double quotes
+    objectText += `\n  "${key}": "${value}",`;
+  });
+  objectText += '\n};';
+
   return [{
-    text: `module.exports = ${JSON.stringify(json, null, 2)};`,
+    text: objectText,
     filename,
   }];
 };
@@ -62,23 +80,20 @@ const preprocess = (text, filename) => {
 /**
  * Formats ESLint messages
  * @param {*} messages 
- * @param {*} filename 
  */
 const postprocess = (messages) => {
   const alteredMessages = messages[0]
     .map(msg => {
-      // Converting from properties files to JS will remove newlines and comments
+      // Converting from properties files to JS will add additional lines.
       // We keep a map so we can display the correct line number
       const reference = Object
         .values(propertiesMap)
-        .find(value => value.jsonLine === msg.line);
+        .find(value => value.line === msg.line - 1); // Account for 'module.exports'
 
-      // In some cases, we're unable to find a reference to JSON object
-      // To avoid a confusing message - remove the line numbers.
       return Object.assign(
         msg,
         reference
-          ? { line: reference.line + 1, column: reference.column } // Non-zero index
+          ? { line: reference.line, column: 0 }
           : { line: 0, column: 0 },
       );
     });
