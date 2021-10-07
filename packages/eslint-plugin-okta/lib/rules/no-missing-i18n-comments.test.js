@@ -45,6 +45,20 @@ ruleTester.run('no-missing-i18n-comments', rule, {
       '// Another param {0}',
       'key3: "{0} - here",'
     ]),
+    {
+      code: buildTestCode([
+        '// Comment explaining {{0}}',
+        'key: "{{0}}",'
+      ]),
+      options: [{ templateDelimiters: ['{{', '}}'] }],
+    },
+    {
+      code: buildTestCode([
+        '// Comment explaining <%0%>',
+        'key: "<%0%>",'
+      ]),
+      options: [{ templateDelimiters: ['<%', '%>'] }],
+    }
   ],
 
   invalid: [
@@ -118,5 +132,19 @@ ruleTester.run('no-missing-i18n-comments', rule, {
         message: 'Context for "{0}" is missing. Add a comment above "Name: {0}" to describe how it is used.',
       }]
     },
+    {
+      code: buildTestCode([ 'key: "Name: {{0}}",' ]),
+      options: [{ templateDelimiters: ['{{', '}}'] }],
+      errors: [{
+        message: 'Context for "{{0}}" is missing. Add a comment above "Name: {{0}}" to describe how it is used.',
+      }]
+    },
+    {
+      code: buildTestCode([ 'key: "Name: <%0%>",' ]),
+      options: [{ templateDelimiters: ['<%', '%>'] }],
+      errors: [{
+        message: 'Context for "<%0%>" is missing. Add a comment above "Name: <%0%>" to describe how it is used.',
+      }]
+    }
   ],
 });

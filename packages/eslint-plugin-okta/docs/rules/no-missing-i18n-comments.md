@@ -6,6 +6,21 @@ Comments are valuable for both developers and translators to properly represent 
 
 `'@okta/okta/no-missing-i18n-comments': 2`
 
+## Options
+
+| Option               | Type             | Description                              |
+|----------------------|------------------|------------------------------------------|
+| `templateDelimiters` | Array of Strings | Beginning and ending argument delimiters |
+|                      |                  | Defaults to `['{', '}']`                 |
+
+When configuring the rule, specify the enforcement **first**, followed by any overrides:
+
+```js
+rules: {
+  '@okta/okta/no-missing-i18n-comments': [ 2, { templateDelimiters: ['<%', '%>'] } ],
+}
+```
+
 ## Examples
 
 Examples of **incorrect** code for this rule:

@@ -18,12 +18,22 @@ module.exports = {
       category: 'Best Practice',
       recommended: true
     },
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          templateDelimiters: {
+            type: 'array'
+          },
+        },
+        additionalProperties: false
+      }
+    ],
     messages: {
       missingSingularComment: 'Single-word values are often mistranslated. Add a comment above "{{entry}}" to describe how it is used.',
       missingArgumentComment: 'Context for "{{arg}}" is missing. Add a comment above "{{entry}}" to describe how it is used.',
     },
     fixable: null,
-    schema: []
   },
 
   create(context) {
@@ -62,8 +72,12 @@ module.exports = {
         return;
       }
 
+      // If a custom set of template delimiters are passed, use them:
+      const options = context.options[0] || {};
+      const [ startDel, endDel ] = options.templateDelimiters || ['{', '}'];
+
       // Check if arguments are used
-      const regex = new RegExp('{([0-9]+?)}', 'ig');
+      const regex = new RegExp(`${startDel}([0-9]+?)${endDel}`, 'ig');
       const matches = node.value.match(regex) || [];
 
       // Check if value consists of multiple words
