@@ -53,7 +53,7 @@ const linkPropertiesToJson = (propertiesText, json) => {
  * @param {*} filename 
  */
 const preprocess = (text, filename) => {
-  if (!text) return;
+  if (!text) return [ text, filename ];
   const json = properties(text);
   linkPropertiesToJson(text, json);
 

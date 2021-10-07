@@ -5,6 +5,9 @@ describe('processor', () => {
     it('should not crash when no input is provided', () => {
       processor.preprocess();
     });
+    it('should not crash when empty file content is given', () => {
+      processor.preprocess('');
+    });
     it('should return an array', () => {
       const pre = processor.preprocess('hello = there');
       expect(Array.isArray(pre)).toBe(true);
