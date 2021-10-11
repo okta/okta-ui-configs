@@ -23,7 +23,10 @@ module.exports = {
         type: 'object',
         properties: {
           templateDelimiters: {
-            type: 'array'
+            type: 'array',
+          },
+          checkSingleWords: {
+            type: 'boolean',
           },
         },
         additionalProperties: false
@@ -92,7 +95,8 @@ module.exports = {
       const comment = getComments(node);
 
       // Single-word case
-      if (!isMultiWord && !comment) {
+      const enabledSingleWord = !!options.checkSingleWords;
+      if (enabledSingleWord && !isMultiWord && !comment) {
         report('missingSingularComment', { node, data: { entry: node.value } });
         return; // Do not report for both singular and matches
       }

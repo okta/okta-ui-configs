@@ -15,7 +15,7 @@ This repository contains standards and configurations for building JavaScript ap
 
 | Package | Status | Description |
 |---------| -------| ------------|
-| [**eslint-plugin-okta**](/packages/eslint-plugin-okta) | *Internal only* | Standard ESLint rules and plugins. |
+| [**eslint-plugin-okta**](/packages/eslint-plugin-okta) | [![npm version](https://img.shields.io/npm/v/@okta/eslint-plugin-okta.svg?style=flat-square)](https://www.npmjs.com/package/@okta/eslint-plugin-okta) | Standard ESLint rules and plugins. |
 
 ### Monorepo
 

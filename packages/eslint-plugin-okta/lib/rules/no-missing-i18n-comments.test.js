@@ -15,7 +15,6 @@ function buildTestCode(codeLines) {
 ruleTester.run('no-missing-i18n-comments', rule, {
   valid: [
     buildTestCode([
-      '// Description of single',
       'key: "single"',
     ]),
     buildTestCode([
@@ -58,25 +57,17 @@ ruleTester.run('no-missing-i18n-comments', rule, {
         'key: "<%0%>",'
       ]),
       options: [{ templateDelimiters: ['<%', '%>'] }],
+    },
+    {
+      code: buildTestCode([
+        '// Description of single',
+        'key: "single"',
+      ]),
+      options: [{ checkSingleWords: true }],
     }
   ],
 
   invalid: [
-    {
-      code: buildTestCode(['key: "single"']),
-      errors: [{
-        message: 'Single-word values are often mistranslated. Add a comment above "single" to describe how it is used.',
-      }]
-    },
-    {
-      code: buildTestCode([
-        'key: "first",',
-        'key2: "second value"',
-      ]),
-      errors: [{
-        message: 'Single-word values are often mistranslated. Add a comment above "first" to describe how it is used.',
-      }]
-    },
     {
       code: buildTestCode(['key: "Value {0}"']),
       errors: [{
@@ -145,6 +136,24 @@ ruleTester.run('no-missing-i18n-comments', rule, {
       errors: [{
         message: 'Context for "<%0%>" is missing. Add a comment above "Name: <%0%>" to describe how it is used.',
       }]
-    }
+    },
+    // Single-words
+    {
+      code: buildTestCode(['key: "single"']),
+      options: [{ checkSingleWords: true }],
+      errors: [{
+        message: 'Single-word values are often mistranslated. Add a comment above "single" to describe how it is used.',
+      }]
+    },
+    {
+      code: buildTestCode([
+        'key: "first",',
+        'key2: "second value"',
+      ]),
+      options: [{ checkSingleWords: true }],
+      errors: [{
+        message: 'Single-word values are often mistranslated. Add a comment above "first" to describe how it is used.',
+      }]
+    },
   ],
 });
