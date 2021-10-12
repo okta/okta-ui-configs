@@ -49,11 +49,12 @@ module.exports = {
 
 ## Rules
 
-| Rule | Description |
-| -- | -- |
-| [no-exclusive-language](docs/rules/no-exclusive-language.md) | Disallow exclusionary words |
-| [no-unlocalized-text](docs/rules/no-unlocalized-text.md) | disallow hardcoded English text in Courage components |
-| [no-unlocalized-text-in-templates](docs/rules/no-unlocalized-text-in-templates.md) | disallow hardcoded English text in templates
+| Rule                                                                               | Description                                                               |
+|------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| [no-exclusive-language](docs/rules/no-exclusive-language.md)                       | Disallow exclusionary words                                               |
+| [no-mission-i18n-comments](docs/rules/no-missing-i18n-comments.md)                 | Disallow messages without comments for arguments and single-word messages |
+| [no-unlocalized-text](docs/rules/no-unlocalized-text.md)                           | Disallow hardcoded English text in Courage components                     |
+| [no-unlocalized-text-in-templates](docs/rules/no-unlocalized-text-in-templates.md) | Disallow hardcoded English text in templates                              |
 
 ## Processors
 

@@ -22,6 +22,9 @@ module.exports = {
         {
           files: ['*.properties'],
           processor: '@okta/okta/properties',
+          rules: {
+            '@okta/okta/no-missing-i18n-comments': 2,
+          }
         },
       ],
     },
@@ -35,6 +38,9 @@ module.exports = {
         {
           files: ['*.properties'],
           processor: '@okta/okta/properties',
+          rules: {
+            '@okta/okta/no-missing-i18n-comments': 2,
+          }
         },
         {
           files: ['*.js'],
@@ -48,6 +54,7 @@ module.exports = {
   },
   rules: {
     'no-exclusive-language': require('./lib/rules/no-exclusive-language'),
+    'no-missing-i18n-comments': require('./lib/rules/no-missing-i18n-comments'),
     'no-unlocalized-text-in-templates': require('./lib/rules/no-unlocalized-text-in-templates'),
     'no-unlocalized-text': require('./lib/rules/no-unlocalized-text'),
   },
