@@ -1,0 +1,27 @@
+{
+  "name": "@okta/build-profiles.i18n",
+  "description": "Bundling i18n properties",
+  "version": "1.0.0",
+  "bin": {
+    "i18n": "./bin/i18n.js"
+  },
+  "dependencies": {
+    "@okta/i18n.pseudo-loc": "0.0.0-4520-g0cc0385"
+  },
+  "devDependencies": {
+    "@okta/build-profiles.utils": "*"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie 11"
+    ]
+  }
+}

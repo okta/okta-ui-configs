@@ -1,0 +1,18 @@
+{
+  "name": "@okta/build-profiles.react-lint",
+  "description": "Checking eslint, style lint for a react app/lib",
+  "version": "1.0.0",
+  "bin": {
+    "react-lint": "./bin/react-lint.js"
+  },
+  "dependencies": {
+    "@okta/eslint-plugin-okta-ui-react": "*",
+    "eslint": "^6.8.0",
+    "stylelint": "^10.0.1",
+    "stylelint-checkstyle-formatter": "^0.1.2",
+    "stylelint-scss": "^3.8.0"
+  },
+  "devDependencies": {
+    "@okta/build-profiles.utils": "*"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@okta/build-profiles.utils",
+  "description": "Shared utils functions for build-profiles",
+  "version": "1.0.0",
+  "dependencies": {
+    "jest-junit": "^6.4.0",
+    "properties": "^1.2.1",
+    "react-app-rewired": "^2.1.5",
+    "serve": "^11.1.0",
+    "webpack": "4.41.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5"
+  }
+}

@@ -6,9 +6,12 @@
     "yarn": "^1.21.1",
     "node": ">=12.13"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "packages/react/*"
+    ]
+  },
   "scripts": {
     "lint": "mkdir -p test-reports/lint && eslint .",
     "test": "mkdir -p $PWD/test-reports/unit && lerna run test"

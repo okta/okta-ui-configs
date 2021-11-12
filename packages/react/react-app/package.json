@@ -1,0 +1,70 @@
+{
+  "name": "@okta/build-profiles.react-app",
+  "description": "Tools to build, run, and test a react app",
+  "version": "1.0.0",
+  "bin": {
+    "react-app": "./bin/react-app.js"
+  },
+  "dependencies": {
+    "@okta/scripts.logger": "0.1.0-beta.3186.g3acea57",
+    "@types/classnames": "^2.2.7",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.5",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.14",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "^5.1.2",
+    "classnames": "2.x",
+    "core-js": "^3.2.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "http-proxy-middleware": "^0.19.1",
+    "immutable": "3.x",
+    "jest-junit": "^6.4.0",
+    "lodash": "4.x",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "prop-types": "15.x",
+    "properties": "^1.2.1",
+    "react": "^16.12.0",
+    "react-app-rewired": "^2.1.5",
+    "react-dnd": "^9.5.1",
+    "react-dnd-html5-backend": "^9.5.1",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "react-test-renderer": "^16.12.0",
+    "redux": "4.x",
+    "redux-mock-store": "^1.5.4",
+    "redux-thunk": "^2.1.0",
+    "typescript": "^3.5.1",
+    "url-search-params-polyfill": "^6.0.0",
+    "webpack-plugin-hash-output": "^3.2.1",
+    "whatwg-fetch": "3.x",
+    "yargs": "^13.3.0"
+  },
+  "devDependencies": {
+    "@okta/build-profiles.i18n": "*",
+    "@okta/build-profiles.react-lint": "*",
+    "@okta/build-profiles.react-test": "*",
+    "@okta/build-profiles.utils": "*",
+    "source-map-explorer": "^2.5.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie 11"
+    ]
+  }
+}

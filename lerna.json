@@ -4,6 +4,31 @@
   "version": "independent",
   "useWorkspaces": true,
   "packages": [
-    "packages/*"
-  ]
+    "packages/*",
+    "packages/react/*"
+  ],
+  "command": {
+    "publish": {
+      "scope": [
+        "@okta/eslint-plugin-okta",
+        "@okta/build-profiles.i18n",
+        "@okta/build-profiles.react-app",
+        "@okta/build-profiles.react-lib",
+        "@okta/build-profiles.react-lint",
+        "@okta/build-profiles.react-test",
+        "@okta/build-profiles.utils"
+      ]
+    },
+    "run": {
+      "scope": [
+        "@okta/eslint-plugin-okta",
+        "@okta/build-profiles.i18n",
+        "@okta/build-profiles.react-app",
+        "@okta/build-profiles.react-lib",
+        "@okta/build-profiles.react-lint",
+        "@okta/build-profiles.react-test",
+        "@okta/build-profiles.utils"
+      ]
+    }
+  }
 }

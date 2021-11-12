@@ -1,0 +1,30 @@
+{
+  "name": "@okta/build-profiles.react-lib",
+  "description": "Tools to build, run, and test a react library",
+  "version": "1.0.0",
+  "bin": {
+    "react-lib": "./bin/react-lib.js"
+  },
+  "devDependencies": {
+    "@okta/build-profiles.i18n": "*",
+    "@okta/build-profiles.react-lint": "*",
+    "@okta/build-profiles.react-test": "*",
+    "@okta/build-profiles.utils": "*"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie 11"
+    ]
+  },
+  "dependencies": {
+    "source-map-explorer": "^2.5.2"
+  }
+}

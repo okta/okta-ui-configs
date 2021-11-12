@@ -1,0 +1,18 @@
+{
+  "name": "@okta/build-profiles.react-test",
+  "description": "Testing a react app/lib",
+  "version": "1.0.0",
+  "bin": {
+    "react-test": "./bin/react-test.js"
+  },
+  "dependencies": {
+    "@okta/scripts.logger": "0.1.0-beta.3186.g3acea57",
+    "axe-core": "^3.5.3",
+    "axe-testcafe": "^3.0.0",
+    "serve": "^11.1.0",
+    "testcafe": "https://github.com/okta/testcafe.git"
+  },
+  "devDependencies": {
+    "@okta/build-profiles.utils": "*"
+  }
+}
