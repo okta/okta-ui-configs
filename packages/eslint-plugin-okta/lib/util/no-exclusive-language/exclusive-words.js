@@ -62,6 +62,10 @@ module.exports = {
       suggestion: ['as a source', 'sourcing', 'backed'],
     },
     {
+      word: 'mastered',
+      suggestion: ['sourced'],
+    },
+    {
       word: 'slave',
       suggestion: ['replica', 'backup', 'follower', 'worker-node', 'instance'],
     },

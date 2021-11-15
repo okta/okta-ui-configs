@@ -46,7 +46,7 @@ module.exports = {
       const value = isTemplateElement ? node.value.raw : node.raw;
       if (!value) return;
       const result = deny.filter(word => {
-        const regex = new RegExp(`[\\w-_/]*${word.word}[\\w-_/]*`, 'ig');
+        const regex = new RegExp(`\\b${word.word}\\b`, 'ig');
         const matches = value.match(regex);
         return matches ? matches[0] : null;
       });
