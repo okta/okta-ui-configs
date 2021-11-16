@@ -14,6 +14,8 @@ ruleTester.run('no-exclusive-language', rule, {
     '\'banlist\'',
     '\'block list\'',
     '\'blocked\'',
+    '\'masterson\'',
+    '\'lemaster\'',
   ],
 
   invalid: [
@@ -87,6 +89,12 @@ ruleTester.run('no-exclusive-language', rule, {
       code: '\'master list\'',
       errors: [{
         message: 'Usage of "master" is deprecated. Utilize "source", "leader", "main" or "backed" instead.',
+      }]
+    },
+    {
+      code: '\'AD mastered\'',
+      errors: [{
+        message: 'Usage of "mastered" is deprecated. Utilize "sourced" instead.',
       }]
     },
     {
