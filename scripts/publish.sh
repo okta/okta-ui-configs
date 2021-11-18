@@ -2,7 +2,7 @@
 
 source ${OKTA_HOME}/${REPO}/scripts/setup.sh
 
-# Install required dependencies
+# Install required dependencies.
 yarn global add @okta/ci-append-sha@1.3.0-gfe2a1fe
 yarn global add @okta/ci-pkginfo
 
