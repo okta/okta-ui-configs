@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "installing node v12.13.0"
-if setup_service node v12.13.0; then
-  echo "Installed node v12.13.0 successfully"
+echo "installing node v16.14.0"
+if setup_service node v16.14.0; then
+  echo "Installed node v16.14.0 successfully"
 else
-  echo "node v12.13.0 installation failed."
+  echo "node v16.14.0 installation failed."
   exit ${FAILED_SETUP}
 fi
 
