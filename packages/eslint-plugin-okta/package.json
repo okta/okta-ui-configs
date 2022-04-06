@@ -2,7 +2,7 @@
   "name": "@okta/eslint-plugin-okta",
   "description": "Linting rules for Okta JS clients",
   "license": "Apache-2.0",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "./index.js",
   "scripts": {
     "test": "jest --config jest.conf.js",
