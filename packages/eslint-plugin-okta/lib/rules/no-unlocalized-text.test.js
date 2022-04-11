@@ -2,7 +2,7 @@ const rule = require('./no-unlocalized-text');
 const RuleTester = require('eslint').RuleTester;
 
 const ruleTester = new RuleTester({
-  parser: require.resolve('babel-eslint'),
+  parser: require.resolve('@babel/eslint-parser'),
   parserOptions: {
     sourceType: 'module',
   },
