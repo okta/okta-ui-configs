@@ -28,7 +28,7 @@
     "hosted-git-info": "3.0.8",
     "ini": "^1.3.8",
     "json-schema": "0.4.0",
-    "node-fetch": "3.2.3",
+    "node-fetch": "3.2.10",
     "normalize-url": "7.0.3",
     "set-value": "4.1.0",
     "ssri": "8.0.1",
