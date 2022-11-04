@@ -8,6 +8,11 @@
     "test": "jest --config jest.conf.js",
     "test-report": "yarn test --testResultsProcessor=jest-junit"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okta/ui-build-tools-legacy.git",
+    "directory": "eslint-plugin-okta"
+  },
   "jest-junit": {
     "output": "../../test-reports/unit/eslint-plugin-okta.xml"
   },

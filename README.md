@@ -1,5 +1,7 @@
 # Okta UI Configurations
 
+> :x: THIS REPO HAS BEEN RETIRED! Code has been moved to [ui-build-tools-legacy](https://github.com/okta/ui-build-tools-legacy)
+
 This repository contains standards and configurations for building JavaScript applications at Okta.
 
 <!-- TOC depthFrom:2 -->
